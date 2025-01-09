@@ -8,14 +8,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (captchaText && captchaInput) {
       captchaInput.value = captchaText;
 
-      const confirmButton = document.querySelector('.formLi .btn-confirm-captcha');
+      const confirmButton = document.querySelector('.btn-confirm-captcha');
       if (confirmButton) {
         confirmButton.click();
       }
 
       sendResponse({ success: true, captchaText: captchaText });
     } else {
-      sendResponse({ success: false, error: "Captcha text, input field, or confirm button not found." });
+      sendResponse({ success: false, error: "Captcha bulunamadı!"});
     }
   }
 });
